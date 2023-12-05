@@ -8,6 +8,9 @@
     font-family: "Catamaran", sans-serif;
     font-size: 16px;
 }
+:root{
+     --bg-light-orange: #fdf6ed;
+}
 /* Universal css Start */
 .text-orange{color:#EA512E;}
 .text-black{color: #1B0238;}
@@ -16,6 +19,7 @@
 .bg-light-orange{background: #fdf6ed;}
 .bg-yellow{background: #f5890d !important;}
 .bg-light-yellow{background:#fee9ca ;}
+.bg-light-pink{background: #FDEEE9;}
 .mt-10{margin-top: 100px;}
 .mt-12{margin-top: 125px;}
 .mt-15{margin-top: 150px;}
@@ -57,6 +61,12 @@ p {
     color: #1b0238;
     font-family: "Catamaran", sans-serif;
     font-weight: bold;
+}
+img{
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+
 }
 /* Universal css End */
 
@@ -129,6 +139,8 @@ a.dropdown-item:hover{
 .who span,
 .popular span,
 .teacher span,
+.upcoming span,
+.news span,
 .testimonial span,
 .core-value span{
     font-weight: 600;
@@ -139,6 +151,8 @@ a.dropdown-item:hover{
 .who h3,
 .popular h3,
 .teacher h3,
+.upcoming h3,
+.news h3,
 .testimonial h3,
 .core-value h3{
     font-size: 45px;
@@ -146,6 +160,49 @@ a.dropdown-item:hover{
     margin-bottom: 20px;
     
 }
+.who .image{
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    
+}
+
+
+.who .image::before{
+    content: "";
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #ea512e;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index:-1;
+    border-radius: 50%;
+    transition: 0.5s;
+    animation: border-transform-default 10s linear infinite alternate forwards;
+
+}
+.who .image img{
+    border-radius: 50%;
+    padding: 20px;
+}
+.who .image::after{
+    content: "";
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    background-color:#f5890d;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index:-1;
+    border-radius: 50%;
+    transition: 0.5s;
+    animation: border-transform-default 50s linear infinite alternate forwards;
+
+}
+
 .who ul li{
     line-height: 40px;
     font-weight: bold;
@@ -174,7 +231,7 @@ a.dropdown-item:hover{
 /* Popular class section start */
 .popular .card:hover img{
     transform: scale(1.1)rotate(2deg);
-    transition: all 0.3s linaer;
+    transition: all 0.3s linear;
 }
 .card-body h4:hover{
     color: #EA512E;
@@ -210,6 +267,11 @@ a.dropdown-item:hover{
 /* core value section end */
 
 /* Teacher Section Start */
+.teacher{
+    background-color: var(--bg-light-orange);
+}
+
+    
 .teacher .social-media{
     position: absolute;
     bottom: 0;
@@ -217,6 +279,24 @@ a.dropdown-item:hover{
     right: 0;
     margin-bottom: -70px;
     transition: all 0.5s ease-in;
+}
+.teacher .teacher-image{
+    z-index:999 !important;
+}
+.teacher .teacher-image .teach-image::before{
+    content: "";
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #ea512e;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index:-1;
+    border-radius: 50%;
+    transition: 0.5s;
+    animation: border-transform-default 10s linear infinite alternate forwards;
+
 }
 .teacher .teacher-image:hover .social-media{
     margin-bottom: 0px;
@@ -257,10 +337,12 @@ a.dropdown-item:hover{
     background: #fff;
     font-size: 30px;
     color: #EA512E;
+    transition:all 0.2s linear;
 }
-#testimonial-card div:hover{
+#testimonial-card:hover div{
     background: #EA512E;
     color: #fff;
+    transition:all 0.2s linear
 }
 
 .testimonial .nav-button button{
@@ -284,6 +366,129 @@ a.dropdown-item:hover{
 
 /* Testimonial section end */
 
+/* Testimoniel section start */
+.testimoniel{
+    width: 100%;
+    height: auto;
+
+}
+.testimoniel .card{
+    height:auto;
+    padding: 30px;
+    border-radius: 49%;
+    text-align: center;
+    background: #fee9ca !important;
+    border: none;
+}
+.slider-wrap{
+    position: relative;
+    height: 100px;
+    overflow-x:hidden ;
+}
+.slider-main{
+    position: absolute;
+    width: 180%;
+
+}
+.item{
+    width: 300px;
+    display: inline-block;
+   
+}
+.item .card{
+    transition: 0.5s ease-in-out;
+}
+/* Testimoniel section end */
+
+/* Upcoming event section start */
+.upcoming{
+    position: relative;
+    background: url(../img/event-bg.jpg);
+    background-size:100% 100%;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+/* Upcoming event section end */
+
+/* News section start */
+.news .card:hover img{
+    transform: scale(1.1)rotate(2deg);
+    transition: all 0.3s linear;
+    
+    
+}
+.news .card{
+    overflow: hidden;
+}
+.news h5:hover{
+    color: #EA512E;
+}
+
+/* News section end */
+
+/* Footer section start */
+footer{
+    background:linear-gradient(rgba(0, 0, 0 ,0.9),rgba(0,0,0,0.9)) ,url(../img/footer-bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+footer .social{
+    width: 35px;
+    height: 35px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    line-height: 35px;
+    background-color: #EA512E;
+    border-radius: 50%;
+    margin-right: 10px;
+    
+}
+footer h3{
+    font-size: 25px;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    color: #ffffff;
+    border-bottom: 2px solid orangered;
+  
+   
+}
+
+footer .contact a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.3s all linear ease-in-out;
+    
+}
+footer .contact a:hover{
+    border-bottom: 2px solid orangered; 
+    transition: 0.3s all linear ease-in-out; 
+}
+footer .photos{
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns:80px 80px 80px ;
+    grid-template-rows: 80px 80px 80px;
+}
+
+/* Footer section end */
+
+/* copyright section start */
+.copyright{
+    background:#091629;
+    padding: 45px 0px;
+}
+.copyright p{
+    font-weight: 400;
+    font-size: 19px;
+}
+/* copyright section end */
+
 
 @keyframes move {
     0%{}
@@ -305,5 +510,28 @@ a.dropdown-item:hover{
     100%{top: 70%;}
     
 }
+@keyframes border-transform-default {
+    0%, 100% {
+        border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    
+}
+14% {
+    border-radius: 40% 60% 54% 46%/49% 60% 40% 51%;
+}
+28% {
+    border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+}
+42% {
+    border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+}
+56% {
+    border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+}
+70% {
+    border-radius: 50% 50% 34% 66%/56% 68% 32% 44%;
+}
+84% {
+    border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+}
 
- 
+}
